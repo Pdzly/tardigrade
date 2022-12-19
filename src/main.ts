@@ -2,6 +2,8 @@ import { dirname, importx } from "@discordx/importer";
 import type { Interaction, Message } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import { Client } from "discordx";
+import dotenv from "dotenv"
+dotenv.config()
 
 export const bot = new Client({
   // To use only guild command
@@ -14,6 +16,7 @@ export const bot = new Client({
     IntentsBitField.Flags.GuildMessages,
     IntentsBitField.Flags.GuildMessageReactions,
     IntentsBitField.Flags.GuildVoiceStates,
+    IntentsBitField.Flags.MessageContent,
   ],
 
   // Debug logs are disabled in silent mode
@@ -27,7 +30,7 @@ export const bot = new Client({
 
 bot.once("ready", async () => {
   // Make sure all guilds are cached
-  // await bot.guilds.fetch();
+  await bot.guilds.fetch();
 
   // Synchronize applications commands with Discord
   await bot.initApplicationCommands();
@@ -36,9 +39,9 @@ bot.once("ready", async () => {
   // This is useful when moving from guild commands to global commands
   // It must only be executed once
   //
-  //  await bot.clearApplicationCommands(
-  //    ...bot.guilds.cache.map((g) => g.id)
-  //  );
+   await bot.clearApplicationCommands(
+     ...bot.guilds.cache.map((g) => g.id)
+   );
 
   console.log("Bot started");
 });
