@@ -9,7 +9,7 @@
     "build": "tsc",
     "build:changelog": "npx @discordx/changelog --root=src",
     "dev": "ts-node-esm src/main.ts",
-    "start": "ts-node-esm build/main.js",
+    "start": "ts-node-esm build/main.ts",
     "watch": "nodemon --exec ts-node-esm src/main.ts"
   },
   "dependencies": {
