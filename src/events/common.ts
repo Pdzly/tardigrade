@@ -140,6 +140,23 @@ const replies: {
   },
   {
     type: "message",
+    message: ["ok","okay"],
+    chance: 0.1,
+    reply: ["cock"],
+  },
+ {
+  type: "message",
+  message: ["t!ban","t!kick"],
+  reply: ["nah im not doing that to this guy. theyre cool asf bro."],
+ },
+ {
+  type: "message",
+  message: ["why"],
+  chance: 0.1,
+  reply: ["idk bro why not","idk","bruh","peepeepoopoo","do u think he will explain why?","bruhhhhhhhhhhh","figure it out idk"],
+ },
+  {
+    type: "message",
     chance: 0.5,
     message: ["bruh"],
     reply: [
