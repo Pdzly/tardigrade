@@ -206,7 +206,6 @@ reply:[`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠴⠤⠤⠴⠄⡄⡀⠀⠀⠀⠀
 export class textResponses {
   @On({ event: "messageCreate" })
   noOhio([message]: ArgsOf<"messageDelete">, client: Client): void {
-    console.log(message.content)
     if (message.member?.user.bot) return;
     const filtered = replies.filter(
       (x) =>
@@ -215,8 +214,6 @@ export class textResponses {
         Math.random() <= (x.chance || 1)
     );
     const found = filtered[Math.floor(Math.random() * filtered.length)]
-    console.log("found?");
-    console.log(found);
     
     if (found && found.type === "message") {
       message.channel.send({
@@ -226,7 +223,6 @@ export class textResponses {
         reply: { messageReference: message.id },
       });
     } else if (found && found.type === "react") {
-      console.log("HERE");
       message.react(
         found.reply![Math.floor(Math.random() * found.reply?.length!)]!
       );
